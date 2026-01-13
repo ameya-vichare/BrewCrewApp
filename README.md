@@ -71,7 +71,6 @@ graph TB
         Persist[Persistence]
         Img[ImageLoading]
         Monitor[NetworkMonitoring]
-        Design[DesignSystem]
     end
     
     App --> AppCoord
