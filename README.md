@@ -4,7 +4,7 @@ A modern iOS application built with Swift, showcasing enterprise-level architect
 
 ## 📱 Overview
 
-The Coffee App allows users to authenticate, browse a coffee menu, customize orders with modifiers, track order history, and manage their profile. Built with **iOS 17+** using Swift Concurrency, SwiftUI, and modular architecture.
+The BrewCrew App allows users to authenticate, browse a coffee menu, customize orders with modifiers, track order history, and manage their profile. Built with **iOS 17+** using Swift Concurrency, SwiftUI, and modular architecture.
 
 ## 🏗️ Architecture
 
@@ -29,7 +29,7 @@ The Coffee App allows users to authenticate, browse a coffee menu, customize ord
 - **Domain**: Use Cases encapsulating business logic
 - **Data**: Repository pattern with remote API and local data store
 
-**Swift Concurrency**: Extensive use of `async/await`, `@MainActor` for UI safety, and structured concurrency.
+**Swift Concurrency**: Use of `async/await`, `@MainActor` for structured concurrency.
 
 ## 📦 Module Structure
 
