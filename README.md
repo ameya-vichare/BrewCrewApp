@@ -51,6 +51,7 @@ The BrewCrew App allows users to authenticate, browse a coffee menu, customize o
 ### Architecture Diagram
 
 graph TB
+
     subgraph "Application Layer"
         App[AppDelegate]
         AppCoord[AppFlowCoordinator]
