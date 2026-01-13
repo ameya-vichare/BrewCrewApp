@@ -2,6 +2,8 @@
 
 A modern iOS application built with Swift, showcasing enterprise-level architecture patterns. This app demonstrates a complete coffee ordering system with authentication, menu browsing, order management, and user profile features.
 
+https://github.com/user-attachments/assets/16b4c418-1816-4577-89c1-5462c7be4386
+
 ## 📱 Overview
 
 The BrewCrew App allows users to authenticate, browse a coffee menu, customize orders with modifiers, track order history, and manage their profile. Built with **iOS 17+** using Swift Concurrency, SwiftUI, and modular architecture.
