@@ -58,13 +58,13 @@ graph TB
         TabCoord[TabBarCoordinator]
         DI[AppDIContainer]
     end
-
+    
     subgraph "Feature Modules"
         Auth[AuthModule]
-        Order[CoffeeModule]
+        Order[OrderModule]
         Profile[ProfileModule]
     end
-
+    
     subgraph "Core Modules"
         Core[AppCore]
         Net[Networking]
@@ -73,32 +73,35 @@ graph TB
         Monitor[NetworkMonitoring]
         Design[DesignSystem]
     end
-
+    
     App --> AppCoord
     AppCoord --> DI
     AppCoord --> TabCoord
     TabCoord --> Auth
     TabCoord --> Order
     TabCoord --> Profile
-
+    
     Auth --> Core
     Auth --> Net
     Auth --> Persist
-
+    
     Order --> Core
     Order --> Net
     Order --> Persist
     Order --> Img
     Order --> Monitor
-
+    
     Profile --> Core
     Profile --> Persist
-
+    
     style App fill:#e1f5ff
     style Auth fill:#fff4e1
+    style Auth color:#000000
+    style Profile color:#000000
+    style Order color:#000000
     style Order fill:#fff4e1
     style Profile fill:#fff4e1
-    style Core fill:#e8f5e9
+    style App color:#000000
 ```
 
 
