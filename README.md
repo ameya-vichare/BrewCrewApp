@@ -50,55 +50,36 @@ The BrewCrew App allows users to authenticate, browse a coffee menu, customize o
 
 ### Architecture Diagram
 
-graph TB
-
-    subgraph AppLayer["Application Layer"]
-        App[AppDelegate]
-        AppCoord[AppFlowCoordinator]
-        TabCoord[TabBarCoordinator]
-        DI[AppDIContainer]
-    end
+flowchart TB
+    App[AppDelegate] --> AppCoord[AppFlowCoordinator]
+    AppCoord --> DI[AppDIContainer]
+    AppCoord --> TabCoord[TabBarCoordinator]
     
-    subgraph FeatureLayer["Feature Modules"]
-        Auth[AuthModule]
-        Order[CoffeeModule]
-        Profile[ProfileModule]
-    end
+    TabCoord --> Auth[AuthModule]
+    TabCoord --> Order[CoffeeModule]
+    TabCoord --> Profile[ProfileModule]
     
-    subgraph CoreLayer["Core Modules"]
-        Core[AppCore]
-        Net[Networking]
-        Persist[Persistence]
-        Img[ImageLoading]
-        Monitor[NetworkMonitoring]
-        Design[DesignSystem]
-    end
-    
-    App --> AppCoord
-    AppCoord --> DI
-    AppCoord --> TabCoord
-    TabCoord --> Auth
-    TabCoord --> Order
-    TabCoord --> Profile
-    
-    Auth --> Core
-    Auth --> Net
-    Auth --> Persist
+    Auth --> Core[AppCore]
+    Auth --> Net[Networking]
+    Auth --> Persist[Persistence]
     
     Order --> Core
     Order --> Net
     Order --> Persist
-    Order --> Img
-    Order --> Monitor
+    Order --> Img[ImageLoading]
+    Order --> Monitor[NetworkMonitoring]
     
     Profile --> Core
     Profile --> Persist
     
-    style App fill:#e1f5ff
-    style Auth fill:#fff4e1
-    style Order fill:#fff4e1
-    style Profile fill:#fff4e1
-    style Core fill:#e8f5e9
+    classDef appLayer fill:#e1f5ff
+    classDef featureLayer fill:#fff4e1
+    classDef coreLayer fill:#e8f5e9
+    
+    class App,AppCoord,DI,TabCoord appLayer
+    class Auth,Order,Profile featureLayer
+    class Core,Net,Persist,Img,Monitor coreLayer
+
 
 ## 🎯 Architectural Decisions
 
