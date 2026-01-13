@@ -80,15 +80,26 @@ graph TB
     TabCoord --> Order
     TabCoord --> Profile
     
-    Auth --> Core & Net & Persist
-    Order --> Core & Net & Persist & Img & Monitor
-    Profile --> Core & Persist
+    Auth --> Core
+    Auth --> Net
+    Auth --> Persist
+    
+    Order --> Core
+    Order --> Net
+    Order --> Persist
+    Order --> Img
+    Order --> Monitor
+    
+    Profile --> Core
+    Profile --> Persist
     
     style App fill:#e1f5ff
     style Auth fill:#fff4e1
     style Order fill:#fff4e1
     style Profile fill:#fff4e1
-    style Core fill:#e8f5e9## 🎯 Architectural Decisions
+    style Core fill:#e8f5e9##
+
+🎯 Architectural Decisions
 
 ### 1. Coordinator Pattern with Navigation Stacks
 
