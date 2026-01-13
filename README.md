@@ -2,7 +2,7 @@
 
 A modern iOS application built with Swift, showcasing enterprise-level architecture patterns. This app demonstrates a complete coffee ordering system with authentication, menu browsing, order management, and user profile features.
 
-https://github.com/user-attachments/assets/16b4c418-1816-4577-89c1-5462c7be4386
+https://github.com/user-attachments/assets/b185d160-ab95-495e-a5c1-597e7e163bab
 
 ## 📱 Overview
 
