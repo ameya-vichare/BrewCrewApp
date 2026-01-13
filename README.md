@@ -1,17 +1,3 @@
-Exploring the codebase to understand the architecture and structure.
-
-
-[14 tools called]
-
-
-Drafting the README. Checking a few more details:
-
-
-[2 tools called]
-
-
-README for the Coffee App project:
-
 ```markdown
 # Coffee App ☕
 
