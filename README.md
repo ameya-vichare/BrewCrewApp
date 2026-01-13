@@ -10,7 +10,7 @@ The Coffee App allows users to authenticate, browse a coffee menu, customize ord
 
 ### Technology Stack
 
-- **UI**: SwiftUI with UIKit integration
+- **UI**: SwiftUI
 - **Architecture**: MVVM + Clean Architecture
 - **Navigation**: Coordinator Pattern
 - **DI**: Resolver (app-level) + Constructor Injection (module-level)
