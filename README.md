@@ -100,7 +100,7 @@ graph TB
     style Profile fill:#fff4e1
     style Core fill:#e8f5e9##
 
-🎯 Architectural Decisions
+## 🎯 Architectural Decisions
 
 ### 1. Coordinator Pattern with Navigation Stacks
 
