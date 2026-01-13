@@ -99,7 +99,7 @@ graph TB
     style Order fill:#fff4e1
     style Profile fill:#fff4e1
     style Core fill:#e8f5e9
-
+```
 
 
 ## 🎯 Architectural Decisions
