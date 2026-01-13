@@ -51,20 +51,20 @@ The BrewCrew App allows users to authenticate, browse a coffee menu, customize o
 ### Architecture Diagram
 
 graph TB
-    subgraph "Application Layer"
+    subgraph AppLayer["Application Layer"]
         App[AppDelegate]
         AppCoord[AppFlowCoordinator]
         TabCoord[TabBarCoordinator]
         DI[AppDIContainer]
     end
     
-    subgraph "Feature Modules"
+    subgraph FeatureLayer["Feature Modules"]
         Auth[AuthModule]
         Order[CoffeeModule]
         Profile[ProfileModule]
     end
     
-    subgraph "Core Modules"
+    subgraph CoreLayer["Core Modules"]
         Core[AppCore]
         Net[Networking]
         Persist[Persistence]
