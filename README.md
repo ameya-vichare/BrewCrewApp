@@ -98,7 +98,7 @@ graph TB
     style Auth fill:#fff4e1
     style Order fill:#fff4e1
     style Profile fill:#fff4e1
-    style Core fill:#e8f5e9##
+    style Core fill:#e8f5e9
 
 ## 🎯 Architectural Decisions
 
