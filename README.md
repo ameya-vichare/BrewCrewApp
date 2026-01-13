@@ -154,10 +154,7 @@ Comprehensive unit testing across all layers:
 ### Setup
 1. Clone the repository
 2. Open `Coffee App.xcodeproj` in Xcode
-3. Configure API credentials in `Coffee-App-Info.plist`:
-   - `apiKey`: Your API key
-   - `apiBaseURL`: Base URL for the API
-4. Build and run
+3. Build and run
 
 ## 📝 Key Features
 
