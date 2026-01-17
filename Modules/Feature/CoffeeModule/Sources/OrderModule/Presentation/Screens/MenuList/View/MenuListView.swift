@@ -29,10 +29,8 @@ public struct MenuListView<ViewModel: MenuListViewModel>: View {
             }
             .listStyle(.plain)
             .task {
-                Task {
-                    if viewModel.state != ScreenViewState.dataFetched {
-                        await self.viewModel.viewDidLoad()
-                    }
+                if viewModel.state != ScreenViewState.dataFetched {
+                    await self.viewModel.viewDidLoad()
                 }
             }
             

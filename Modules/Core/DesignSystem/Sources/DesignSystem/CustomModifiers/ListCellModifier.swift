@@ -20,11 +20,6 @@ struct ListCellModifier: ViewModifier {
 
 extension View {
     public func listCellStyle() -> some View {
-        content
-            .listRowSeparator(.hidden)
-            .listRowBackground(AppColors.clear)
-            .listRowInsets(
-                EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-            )
+        modifier(ListCellModifier())
     }
 }
