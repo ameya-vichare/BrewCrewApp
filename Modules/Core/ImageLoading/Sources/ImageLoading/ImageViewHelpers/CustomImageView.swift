@@ -10,18 +10,18 @@ import SwiftUI
 public struct CustomImageView<Placeholder: View>: View {
     private let url: URL?
     private let preferredSize: CGSize
-    private let placeholder: Placeholder
+    private let placeholder: () -> Placeholder
     @StateObject private var loader: SwiftUIImageLoader
     
     public init(
         url: URL?,
         targetSize: CGSize,
         imageService: ImageService,
-        @ViewBuilder placeholder: () -> Placeholder
+        placeholder: @escaping () -> Placeholder
     ) {
         self.url = url
         self.preferredSize = targetSize
-        self.placeholder = placeholder()
+        self.placeholder = placeholder
         self._loader = StateObject(wrappedValue: SwiftUIImageLoader(imageService: imageService))
     }
     
@@ -32,7 +32,7 @@ public struct CustomImageView<Placeholder: View>: View {
                     .resizable()
                     .scaledToFit()
             } else {
-                placeholder
+                placeholder()
             }
         }
         .id(url)
