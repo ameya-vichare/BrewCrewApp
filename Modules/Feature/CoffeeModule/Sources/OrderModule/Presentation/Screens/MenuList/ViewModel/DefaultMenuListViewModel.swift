@@ -40,8 +40,8 @@ public final class DefaultMenuListViewModel: MenuListViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Output
-    @Published private(set) public var state: ScreenViewState = .preparing
-    @Published private(set) public var datasource: [MenuListCellType] = []
+    @Published public var state: ScreenViewState = .preparing
+    @Published public var datasource: [MenuListCellType] = []
     
     private(set) var alertSubject = PassthroughSubject<AlertData?, Never>()
     public var alertPublisher: AnyPublisher<AlertData?, Never> {
