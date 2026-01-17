@@ -24,15 +24,7 @@ public struct ProfileView<ViewModel: ProfileViewModel>: View {
                     
                     ForEach(section.rows) { rowType in
                         ProfileCellView(rowType: rowType)
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(
-                                EdgeInsets(
-                                    top: AppPointSystem.point_0,
-                                    leading: AppPointSystem.point_0,
-                                    bottom: AppPointSystem.point_0,
-                                    trailing: AppPointSystem.point_0
-                                )
-                            )
+                            .listCellStyle()
                             .onTapGesture {
                                 viewModel.didSelectRow(with: rowType)
                             }

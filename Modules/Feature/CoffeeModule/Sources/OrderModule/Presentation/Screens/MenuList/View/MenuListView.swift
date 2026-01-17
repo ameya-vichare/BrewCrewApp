@@ -64,11 +64,7 @@ public struct MenuListView<ViewModel: MenuListViewModel>: View {
         switch type {
         case .mainMenu(vm: let viewModel):
             MenuCellView(viewModel: viewModel)
-                .listRowSeparator(.hidden)
-                .listRowBackground(AppColors.clear)
-                .listRowInsets(
-                    EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-                )
+                .listCellStyle()
         }
     }
     
