@@ -26,8 +26,8 @@ struct OrderCellView: View {
             VStack {
                 OrderHeaderView(viewModel: viewModel)
 
-                LazyVStack {
-                    ForEach(self.viewModel.itemsViewModel) { item in
+                VStack {
+                    ForEach(self.viewModel.itemsViewModel, id: \.name) { item in
                         OrderCellDetailView(viewModel: item)
                     }
                 }
@@ -124,20 +124,17 @@ struct OrderCellDetailView: View {
             VStack(alignment: .leading) {
                 Text(viewModel.name)
                     .font(AppFonts.headlineMedium)
-                    .lineLimit(1)
                 
                 Text(viewModel.customisation)
                     .font(AppFonts.captionMedium)
                     .foregroundStyle(AppColors.primaryGray)
-                    .lineLimit(1)
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             Text(viewModel.displayQuantityLabel)
                 .font(AppFonts.subHeadline)
                 .foregroundStyle(AppColors.primaryGray)
-                .padding([.trailing], AppPointSystem.point_40)
+                .padding([.horizontal], AppPointSystem.point_12)
             
             Text(viewModel.displayPriceLabel)
                 .font(AppFonts.subHeadline)

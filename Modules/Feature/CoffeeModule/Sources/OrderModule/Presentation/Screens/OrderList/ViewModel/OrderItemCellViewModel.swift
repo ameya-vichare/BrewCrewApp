@@ -9,8 +9,7 @@ import Foundation
 import AppCore
 
 // View model for order's items
-struct OrderItemCellViewModel: Identifiable {
-    let id: UUID = UUID()
+struct OrderItemCellViewModel {
     let name: String
     let customisation: String
     let imageURL: URL?
