@@ -13,14 +13,14 @@ import Combine
 
 public struct OrderListView: View {
     @ObservedObject var viewModel: DefaultOrderListViewModel
-    @State var activeAlert: AlertData?
-    @State private var cancellables = Set<AnyCancellable>()
-    
+
     public init(viewModel: DefaultOrderListViewModel) {
         self.viewModel = viewModel
     }
     
     public var body: some View {
+        let _ = print("Rerender OrderListView")
+        let _ = Self._printChanges()
         ZStack {
             AppColors.secondaryGray
             
@@ -48,15 +48,7 @@ public struct OrderListView: View {
             .refreshable {
                 await self.viewModel.didRefresh()
             }
-            .onAppear(perform: {
-                viewModel.alertPublisher
-                    .receive(on: DispatchQueue.main)
-                    .sink { alertData in
-                        activeAlert = alertData
-                    }
-                    .store(in: &cancellables)
-            })
-            .alert(item: $activeAlert, content: { alertData in
+            .alert(item: $viewModel.alertData, content: { alertData in
                 Alert(
                     title: Text(alertData.title),
                     message: Text(alertData.message),

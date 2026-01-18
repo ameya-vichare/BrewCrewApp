@@ -35,7 +35,6 @@ public struct CustomImageView<Placeholder: View>: View {
                 placeholder()
             }
         }
-        .id(url)
         .task(id: url) {
             if let url = url {
                 do {

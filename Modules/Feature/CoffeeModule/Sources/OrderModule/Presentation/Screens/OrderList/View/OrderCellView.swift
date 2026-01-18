@@ -38,7 +38,7 @@ struct OrderCellView: View {
                 
                 OrderTotalPriceView(viewModel: viewModel)
                 
-                OrderUserNameView(viewModel: viewModel)
+                OrderUserNameView(username: viewModel.userName)
                 
                 OrderStatusView(viewModel: viewModel)
             }
@@ -168,10 +168,10 @@ struct OrderTotalPriceView: View {
 }
 
 struct OrderUserNameView: View {
-    private let viewModel: OrderCellViewModel
+    private let username: String
     
-    init(viewModel: OrderCellViewModel) {
-        self.viewModel = viewModel
+    public init(username: String) {
+        self.username = username
     }
     
     var body: some View {
@@ -180,7 +180,7 @@ struct OrderUserNameView: View {
                 .font(AppFonts.subHeadline)
                 .foregroundStyle(AppColors.primaryGray)
             
-            Text("\(viewModel.userName)")
+            Text("\(username)")
                 .font(AppFonts.subHeadline)
             
             Spacer()

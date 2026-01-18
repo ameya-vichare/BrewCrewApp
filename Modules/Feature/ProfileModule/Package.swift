@@ -19,6 +19,7 @@ let package = Package(
         .package(path: "../../Core/AppCore"),
         .package(path: "../../Core/Networking"),
         .package(path: "../../Core/Persistence"),
+        .package(path: "../../Feature/AuthModule"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -29,6 +30,7 @@ let package = Package(
                 "AppCore",
                 "Networking",
                 "Persistence",
+                "AuthModule"
             ]
         ),
         .testTarget(

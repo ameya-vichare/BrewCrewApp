@@ -17,7 +17,7 @@ public protocol OrderListNavigationDelegate {
 protocol OrderListViewModelOutput {
     var datasource: [OrderListCellType] { get }
     var state: ScreenViewState { get }
-    var alertPublisher: AnyPublisher<AlertData?, Never> { get }
+    var alertData: AlertData? { get }
 }
 
 protocol OrderListViewModelInput {
@@ -36,11 +36,7 @@ public final class DefaultOrderListViewModel: ObservableObject, OrderListViewMod
     // MARK: - Output
     @Published var datasource: [OrderListCellType] = []
     @Published var state: ScreenViewState = .preparing
-    
-    private var alertSubject = PassthroughSubject<AlertData?, Never>()
-    var alertPublisher: AnyPublisher<AlertData?, Never> {
-        self.alertSubject.eraseToAnyPublisher()
-    }
+    @Published var alertData: AlertData?
     
     // MARK: - Private
     private var pageData: OrderPagination?
@@ -150,10 +146,8 @@ extension DefaultOrderListViewModel {
         let alert = AlertData(
             title: title,
             message: message,
-            button: (text: "Okay", action: { [weak self] in
-                self?.alertSubject.send(nil)
-            })
+            button: (text: "Okay", action: {})
         )
-        self.alertSubject.send(alert)
+        self.alertData = alert
     }
 }

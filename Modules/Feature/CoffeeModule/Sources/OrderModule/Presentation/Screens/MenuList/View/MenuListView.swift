@@ -11,16 +11,16 @@ import Combine
 import Persistence
 import NetworkMonitoring
 
-public struct MenuListView<ViewModel: MenuListViewModel>: View {
-    @ObservedObject var viewModel: ViewModel
-    @State var activeAlert: AlertData?
-    @State private var cancellables = Set<AnyCancellable>()
-    
-    public init(viewModel: ViewModel) {
+public struct MenuListView: View {
+    @ObservedObject var viewModel: DefaultMenuListViewModel
+
+    public init(viewModel: DefaultMenuListViewModel) {
         self.viewModel = viewModel
     }
     
     public var body: some View {
+        let _ = print("Rerender MenuListView")
+        let _ = Self._printChanges()
         ZStack {
             AppColors.secondaryGray
             
@@ -36,15 +36,7 @@ public struct MenuListView<ViewModel: MenuListViewModel>: View {
             
             handleState(state: viewModel.state)
         }
-        .onAppear(perform: {
-            viewModel.alertPublisher
-                .receive(on: DispatchQueue.main)
-                .sink { alertData in
-                    activeAlert = alertData
-                }
-                .store(in: &cancellables)
-        })
-        .alert(item: $activeAlert, content: { alertData in
+        .alert(item: $viewModel.alertData, content: { alertData in
             Alert(
                 title: Text(alertData.title),
                 message: Text(alertData.message),

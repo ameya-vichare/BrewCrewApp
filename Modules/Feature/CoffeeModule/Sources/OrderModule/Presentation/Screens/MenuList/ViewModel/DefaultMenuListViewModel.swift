@@ -18,7 +18,7 @@ public protocol MenuListViewNavigationDelegate {
 public protocol MenuListViewModelOutput {
     var state: ScreenViewState { get }
     var datasource: [MenuListCellType] { get }
-    var alertPublisher: AnyPublisher<AlertData?, Never> { get }
+    var alertData: AlertData? { get }
 }
 
 public protocol MenuListViewModelActions {
@@ -42,11 +42,7 @@ public final class DefaultMenuListViewModel: MenuListViewModel {
     // MARK: - Output
     @Published public var state: ScreenViewState = .preparing
     @Published public var datasource: [MenuListCellType] = []
-    
-    private(set) var alertSubject = PassthroughSubject<AlertData?, Never>()
-    public var alertPublisher: AnyPublisher<AlertData?, Never> {
-        self.alertSubject.eraseToAnyPublisher()
-    }
+    @Published public var alertData: AlertData?
     
     // MARK: - Init
     public init(
@@ -134,11 +130,9 @@ extension DefaultMenuListViewModel {
         let alert = AlertData(
             title: title,
             message: message,
-            button: (text: "Okay", action: { [weak self] in
-                self?.alertSubject.send(nil)
-            })
+            button: (text: "Okay", action: { })
         )
-        self.alertSubject.send(alert)
+        self.alertData = alert
     }
     
     private func prepareDatasource(using response: MenuResponse) {

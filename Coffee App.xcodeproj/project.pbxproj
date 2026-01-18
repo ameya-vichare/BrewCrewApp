@@ -510,7 +510,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Coffee App/Preview Content\"";
-				DEVELOPMENT_TEAM = JC959F8T7E;
+				DEVELOPMENT_TEAM = M59384G6U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coffee-App-Info.plist";
@@ -525,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ameyavichare.CoffeeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ameya-vichare.CoffeeApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -543,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Coffee App/Preview Content\"";
-				DEVELOPMENT_TEAM = JC959F8T7E;
+				DEVELOPMENT_TEAM = M59384G6U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coffee-App-Info.plist";
@@ -558,7 +558,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ameyavichare.Coffee-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ameya-vichare.CoffeeApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
