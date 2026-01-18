@@ -14,8 +14,6 @@ public struct LoginView: View {
     @ObservedObject private var viewModel: DefaultLoginViewModel
     @StateObject private var kb = KeyboardObserver()
     @FocusState private var focussedField: FocussedField?
-    @State var activeAlert: AlertData?
-    @State private var cancellables = Set<AnyCancellable>()
     
     enum FocussedField {
         case username
@@ -134,19 +132,7 @@ public struct LoginView: View {
         .onTapGesture {
             focussedField = nil
         }
-        .onAppear(perform: {
-            viewModel.alertPublisher
-                .receive(on: DispatchQueue.main)
-                .sink { alertData in
-                    activeAlert = alertData
-                }
-                .store(in: &cancellables)
-        })
-        .onDisappear {
-            cancellables.removeAll()
-            activeAlert = nil
-        }
-        .alert(item: $activeAlert, content: { alertData in
+        .alert(item: $viewModel.alertData, content: { alertData in
             Alert(
                 title: Text(alertData.title),
                 message: Text(alertData.message),

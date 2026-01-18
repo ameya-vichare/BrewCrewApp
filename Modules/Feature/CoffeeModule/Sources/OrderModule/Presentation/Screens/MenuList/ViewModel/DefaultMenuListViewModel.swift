@@ -127,12 +127,11 @@ extension DefaultMenuListViewModel {
 // MARK: - Output
 extension DefaultMenuListViewModel {
     private func showAlert(title: String, message: String) {
-        let alert = AlertData(
+        self.alertData = AlertData(
             title: title,
             message: message,
             button: (text: "Okay", action: { })
         )
-        self.alertData = alert
     }
     
     private func prepareDatasource(using response: MenuResponse) {

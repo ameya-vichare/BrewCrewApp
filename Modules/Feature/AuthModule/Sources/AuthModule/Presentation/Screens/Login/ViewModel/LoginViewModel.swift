@@ -14,6 +14,7 @@ public protocol LoginViewModelOutput {
     var username: String { get set }
     var password: String { get set }
     var isFormValid: Bool { get }
+    var alertData: AlertData? { get }
 }
 
 public protocol LoginViewModelActions {
@@ -32,6 +33,7 @@ public final class DefaultLoginViewModel: ObservableObject, LoginViewModel {
     @Published public var username: String = ""
     @Published public var password: String = ""
     @Published public var isFormValid: Bool = false
+    @Published public var alertData: AlertData?
     
     // MARK: - Usecases
     private let userLoginUseCase: UserLoginUseCaseProtocol
@@ -40,14 +42,8 @@ public final class DefaultLoginViewModel: ObservableObject, LoginViewModel {
     // MARK: - Navigation
     let navigationDelegate: LoginViewNavigationDelegate?
     
-    // MARK: - Publishers
-    private var alertSubject = PassthroughSubject<AlertData?, Never>()
-    var alertPublisher: AnyPublisher<AlertData?, Never> {
-        self.alertSubject.eraseToAnyPublisher()
-    }
-    
     private var cancellables: Set<AnyCancellable> = []
-    
+
     // MARK: - Init
     public init(
         userLoginUseCase: UserLoginUseCaseProtocol,
@@ -75,14 +71,11 @@ public final class DefaultLoginViewModel: ObservableObject, LoginViewModel {
     }
     
     private func showAlert(title: String, message: String) {
-        let alert = AlertData(
+        self.alertData = AlertData(
             title: title,
             message: message,
-            button: (text: "Okay", action: { [weak self] in
-                self?.alertSubject.send(nil)
-            })
+            button: (text: "Okay", action: { })
         )
-        self.alertSubject.send(alert)
     }
 }
 

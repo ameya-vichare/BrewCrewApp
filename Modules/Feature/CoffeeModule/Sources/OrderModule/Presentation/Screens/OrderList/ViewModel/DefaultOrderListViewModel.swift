@@ -143,11 +143,10 @@ extension DefaultOrderListViewModel {
     }
     
     private func showAlert(title: String, message: String) {
-        let alert = AlertData(
+        self.alertData = AlertData(
             title: title,
             message: message,
             button: (text: "Okay", action: {})
         )
-        self.alertData = alert
     }
 }
