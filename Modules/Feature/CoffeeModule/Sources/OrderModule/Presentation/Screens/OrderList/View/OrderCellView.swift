@@ -36,11 +36,11 @@ struct OrderCellView: View {
                     .background(AppColors.secondaryGray)
                     .padding([.top, .bottom], AppPointSystem.point_12)
                 
-                OrderTotalPriceView(viewModel: viewModel)
+                OrderTotalPriceView(displayTotalPriceLabel: viewModel.displayTotalPriceLabel)
                 
                 OrderUserNameView(username: viewModel.userName)
                 
-                OrderStatusView(viewModel: viewModel)
+                OrderStatusView(statusDisplayLabel: viewModel.statusDisplayLabel)
             }
             .padding([.bottom, .top], AppPointSystem.point_12)
             .padding([.leading, .trailing], AppPointSystem.point_16)
@@ -49,7 +49,7 @@ struct OrderCellView: View {
 }
 
 struct OrderHeaderView: View {
-    private let viewModel: OrderCellViewModel
+    let viewModel: OrderCellViewModel
     
     init(viewModel: OrderCellViewModel) {
         self.viewModel = viewModel
@@ -147,10 +147,10 @@ struct OrderCellDetailView: View {
 }
 
 struct OrderTotalPriceView: View {
-    private let viewModel: OrderCellViewModel
+    private let displayTotalPriceLabel: String
     
-    init(viewModel: OrderCellViewModel) {
-        self.viewModel = viewModel
+    init(displayTotalPriceLabel: String) {
+        self.displayTotalPriceLabel = displayTotalPriceLabel
     }
     
     var body: some View {
@@ -160,7 +160,7 @@ struct OrderTotalPriceView: View {
             
             Spacer()
             
-            Text(viewModel.displayTotalPriceLabel)
+            Text(displayTotalPriceLabel)
                 .font(AppFonts.subHeadlineMedium)
         }
         .padding([.bottom], AppPointSystem.point_4)
@@ -190,10 +190,10 @@ struct OrderUserNameView: View {
 }
 
 struct OrderStatusView: View {
-    private let viewModel: OrderCellViewModel
+    let statusDisplayLabel: String
     
-    init(viewModel: OrderCellViewModel) {
-        self.viewModel = viewModel
+    init(statusDisplayLabel: String) {
+        self.statusDisplayLabel = statusDisplayLabel
     }
     
     var body: some View {
@@ -205,7 +205,7 @@ struct OrderStatusView: View {
             HStack {
                 Image(systemName: "cup.and.saucer")
                 
-                Text(viewModel.statusDisplayLabel)
+                Text(statusDisplayLabel)
             }
         }
     }
