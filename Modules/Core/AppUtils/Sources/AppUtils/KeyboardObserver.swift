@@ -8,6 +8,7 @@
 import Combine
 import UIKit
 
+@MainActor
 public final class KeyboardObserver: ObservableObject {
     @Published public var height: CGFloat = 0
 
