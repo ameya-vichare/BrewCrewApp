@@ -15,7 +15,7 @@ public protocol MenuListViewNavigationDelegate {
     func showMenuModifierBottomsheet(for item: MenuItem, onOrderItemCreated: @escaping ((CreateOrderItem) -> Void))
 }
 
-public protocol MenuListViewModelOutput {
+protocol MenuListViewModelOutput {
     var state: ScreenViewState { get }
     var datasource: [MenuListCellType] { get }
     var alertData: AlertData? { get }
@@ -25,7 +25,7 @@ public protocol MenuListViewModelActions {
     func viewDidLoad() async
 }
 
-public typealias MenuListViewModel = MenuListViewModelOutput & MenuListViewModelActions & ObservableObject
+typealias MenuListViewModel = MenuListViewModelOutput & MenuListViewModelActions & ObservableObject
 
 @MainActor
 public final class DefaultMenuListViewModel: MenuListViewModel {
@@ -40,9 +40,9 @@ public final class DefaultMenuListViewModel: MenuListViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Output
-    @Published public var state: ScreenViewState = .preparing
-    @Published public var datasource: [MenuListCellType] = []
-    @Published public var alertData: AlertData?
+    @Published var state: ScreenViewState = .preparing
+    @Published var datasource: [MenuListCellType] = []
+    @Published var alertData: AlertData?
     
     // MARK: - Init
     public init(
