@@ -62,7 +62,7 @@ struct CoffeeMenuDetailView: View {
 }
 
 struct CoffeeMenuActionView: View {
-    @Environment(\.imageService) var imageService: ImageService
+    @Environment(\.imageService) private var imageService: ImageService
     private let viewModel: MenuListCellViewModel
     
     init(viewModel: MenuListCellViewModel) {

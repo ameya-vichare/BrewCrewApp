@@ -100,7 +100,7 @@ struct OrderHeaderView: View {
 
 struct OrderCellDetailView: View {
     private let viewModel: OrderItemCellViewModel
-    @Environment(\.imageService) var imageService: ImageService
+    @Environment(\.imageService) private var imageService: ImageService
     
     init(viewModel: OrderItemCellViewModel) {
         self.viewModel = viewModel

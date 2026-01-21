@@ -119,7 +119,7 @@ struct MenuModifierSelectionView: View {
 }
 
 struct MenuModifierHeaderView: View {
-    @Environment(\.imageService) var imageService
+    @Environment(\.imageService) private var imageService
     
     private var viewModel: MenuModifierBottomSheetHeaderViewModel
     
