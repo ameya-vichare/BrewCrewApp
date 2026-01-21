@@ -12,7 +12,7 @@ import Persistence
 import NetworkMonitoring
 
 public struct MenuListView: View {
-    @ObservedObject var viewModel: DefaultMenuListViewModel
+    @ObservedObject private var viewModel: DefaultMenuListViewModel
 
     public init(viewModel: DefaultMenuListViewModel) {
         self.viewModel = viewModel

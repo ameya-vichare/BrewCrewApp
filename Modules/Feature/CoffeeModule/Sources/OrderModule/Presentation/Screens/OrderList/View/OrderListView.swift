@@ -12,7 +12,7 @@ import NetworkMonitoring
 import Combine
 
 public struct OrderListView: View {
-    @ObservedObject var viewModel: DefaultOrderListViewModel
+    @ObservedObject private var viewModel: DefaultOrderListViewModel
 
     public init(viewModel: DefaultOrderListViewModel) {
         self.viewModel = viewModel
